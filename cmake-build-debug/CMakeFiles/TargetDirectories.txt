@@ -1,0 +1,3 @@
+/Users/rinki/Documents/Coding_Local/C-plus-plus-experiment/cmake-build-debug/CMakeFiles/Grade_Management_System.dir
+/Users/rinki/Documents/Coding_Local/C-plus-plus-experiment/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/rinki/Documents/Coding_Local/C-plus-plus-experiment/cmake-build-debug/CMakeFiles/rebuild_cache.dir
