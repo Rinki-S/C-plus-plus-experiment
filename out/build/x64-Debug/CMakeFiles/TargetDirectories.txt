@@ -1,3 +1,0 @@
-C:/Users/35197/Documents/GitHub/C-plus-plus-experiment/out/build/x64-Debug/CMakeFiles/Grade_Management_System.dir
-C:/Users/35197/Documents/GitHub/C-plus-plus-experiment/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Users/35197/Documents/GitHub/C-plus-plus-experiment/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
