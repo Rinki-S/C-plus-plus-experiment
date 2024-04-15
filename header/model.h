@@ -14,30 +14,30 @@ enum class MenuOptions {
 
 class Student {
 private:
-    std::string student_id;
-    std::string student_name;
-    double student_usual_gpa;
-    double student_exam_gpa;
-    double student_final_gpa;
+    std::string studentID;
+    std::string studentName;
+    double studentUsualGPA;
+    double studentExamGPA;
+    double studentFinalGPA;
 public:
-    Student(std::string&& id, std::string&& name, double usual_gpa, double exam_gpa) {
-        student_id = id;
-        student_name = name;
-        student_usual_gpa = usual_gpa;
-        student_exam_gpa = exam_gpa;
-        student_final_gpa = usual_gpa * 0.2 + exam_gpa * 0.8;
+    Student(std::string&& id, std::string&& name, const double usualGPA, const double examGPA) {
+        studentID = std::move(id);
+        studentName = std::move(name);
+        studentUsualGPA = usualGPA;
+        studentExamGPA = examGPA;
+        studentFinalGPA = usualGPA * 0.2 + examGPA * 0.8;
     }
 
     void printStu() const{
-        std::cout << "Student ID:" << student_id << std::endl;
-        std::cout << "Student Name:" << student_name << std::endl;
-        std::cout << "Usual GPA:" << student_usual_gpa << std::endl;
-        std::cout << "Exam GPA:" << student_exam_gpa << std::endl;
-        std::cout << "Final GPA:" << student_final_gpa << std::endl;
+        std::cout << "Student ID:" << studentID << std::endl;
+        std::cout << "Student Name:" << studentName << std::endl;
+        std::cout << "Usual GPA:" << studentUsualGPA << std::endl;
+        std::cout << "Exam GPA:" << studentExamGPA << std::endl;
+        std::cout << "Final GPA:" << studentFinalGPA << std::endl;
     }
 
     void searchStudent(const std::string&& id) const{
-        if (id == student_id) {
+        if (id == studentID) {
             printStu();
         } else {
             std::cout << "No such student!" << std::endl;
