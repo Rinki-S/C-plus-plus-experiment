@@ -16,7 +16,7 @@ void menuOutput() { // Function to display the menu
     std::cout << "+-------------------------------------+" << std::endl;
 }
 
-void menuSelection(MenuOptions option) { // Function to take the choice from the user
+void menuSelection(const MenuOptions option) { // Function to take the choice from the user
     switch (option) {
         case MenuOptions::ADD_STUDENT:
             std::cout << "Add student(s)" << std::endl;

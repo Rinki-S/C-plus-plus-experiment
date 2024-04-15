@@ -28,7 +28,7 @@ public:
         student_final_gpa = usual_gpa * 0.2 + exam_gpa * 0.8;
     }
 
-    void print_stu() const{
+    void printStu() const{
         std::cout << "Student ID:" << student_id << std::endl;
         std::cout << "Student Name:" << student_name << std::endl;
         std::cout << "Usual GPA:" << student_usual_gpa << std::endl;
@@ -36,21 +36,21 @@ public:
         std::cout << "Final GPA:" << student_final_gpa << std::endl;
     }
 
-    void search_student(const std::string&& id) const{
+    void searchStudent(const std::string&& id) const{
         if (id == student_id) {
-            print_stu();
+            printStu();
         } else {
             std::cout << "No such student!" << std::endl;
         }
     }
 
-    void show_gpalist();
+    void showGPAList();
 
-    void delete_student(std::string id);
+    void deleteStudent(std::string id);
 
-    void modify_student(std::string id);
+    void modifyStudent(std::string id);
 
-    void stat_gpa();
+    void statistics();
 };
 
 #endif //GRADE_MANAGEMENT_SYSTEM_MODEL_H
