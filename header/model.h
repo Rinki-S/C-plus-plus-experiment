@@ -1,6 +1,7 @@
 #ifndef GRADE_MANAGEMENT_SYSTEM_MODEL_H
 #define GRADE_MANAGEMENT_SYSTEM_MODEL_H
 #include <iostream>
+#include <iomanip>
 
 enum class MenuOptions {
     ADD_STUDENT = 1,
@@ -12,6 +13,13 @@ enum class MenuOptions {
     EXIT
 };
 
+enum class InformationOptions {
+    ID = 1,
+    NAME,
+    USUAL_SCORE,
+    EXAM_SCORE
+};
+
 class Student {
 private:
     std::string id;
@@ -19,6 +27,7 @@ private:
     double usualScore;
     double examScore;
     double finalScore;
+
 public:
     Student(std::string& id, std::string& name, const double inputUsualScore, const double inputExamScore) {
         id = std::move(id);
@@ -28,45 +37,45 @@ public:
         finalScore = inputUsualScore * 0.2 + inputExamScore * 0.8;
     }
 
+    std::string getID() const {
+        return id;
+    }
+
+    double getFinalScore() const {
+        return finalScore;
+    }
+
+    void setID(std::string&& inputID) {
+        id = std::move(inputID);
+    }
+
+    void setName(std::string&& inputName) {
+        name = std::move(inputName);
+    }
+
+    void setUsualScore(const double inputUsualScore) {
+        usualScore = inputUsualScore;
+    }
+
+    void setExamScore(const double inputExamScore) {
+        examScore = inputExamScore;
+    }
+
+    void scoreUpdate() {
+        finalScore = usualScore * 0.2 + examScore * 0.8;
+    }
+
     void printStu() const {
-        std::cout << "Student ID:" << id << std::endl;
-        std::cout << "Student Name:" << name << std::endl;
-        std::cout << "Usual GPA:" << usualScore << std::endl;
-        std::cout << "Exam GPA:" << examScore << std::endl;
-        std::cout << "Final GPA:" << finalScore << std::endl;
+        std::cout << std::left <<
+            std::setw(15) << id <<
+                std::setw(15) << name <<
+                    std::setw(15) << usualScore <<
+                        std::setw(15) << examScore << std::endl;
     }
 
-    [[nodiscard]] int searchStudent(const std::string&& inputID) const {
-        if (inputID == id) {
-            return 1;
-        }
-        std::cout << "No such student!" << std::endl;
-        return 0;
+    [[nodiscard]] bool searchStudent(const std::string&& inputID) const {
+        return id == inputID;
     }
-
-    std::string getStudentID() {
-		return id;
-	}
-    std::string getStudentName(){
-		return name;
-	}
-	double getStudentUsualGPA() const{
-		return usualScore;
-	}
-	double getStudentExamGPA(){
-		return examScore;
-	}
-	double getStudentFinalGPA(){
-		return finalScore;
-	}
 };
-    void showGPAList();
-
-    void deleteStudent(std::string id);
-
-    void modifyStudent(std::string id);
-
-    void statistics();
-
 
 #endif //GRADE_MANAGEMENT_SYSTEM_MODEL_H

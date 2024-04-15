@@ -16,6 +16,15 @@ void menuOutput() { // Function to display the menu
     std::cout << "+-------------------------------------+" << std::endl;
 }
 
+void informationOutput() {
+    std::cout << "+-------------------------------------+" << std::endl;
+    std::cout << "| 1. ID                               |" << std::endl;
+    std::cout << "| 2. Name                             |" << std::endl;
+    std::cout << "| 3. Usual score                      |" << std::endl;
+    std::cout << "| 4. Exam score                       |" << std::endl;
+    std::cout << "+-------------------------------------+" << std::endl;
+}
+
 void menuSelection(const MenuOptions option) { // Function to take the choice from the user
     switch (option) {
         case MenuOptions::ADD_STUDENT:

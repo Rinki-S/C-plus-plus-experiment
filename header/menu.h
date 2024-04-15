@@ -8,6 +8,7 @@
 #include "model.h"
 
 void menuOutput();
+void informationOutput();
 void menuSelection(MenuOptions choice);
 
 #endif //GRADE_MANAGEMENT_SYSTEM_MENU_H

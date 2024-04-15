@@ -3,6 +3,17 @@
 //
 #include <iostream>
 #include <algorithm>
+#include <iomanip>
+#include "../header/model.h"
+
+bool checkDuplicateStudent(const std::vector<Student> &students, const std::string &id) {
+    for (const auto &student : students) {
+        if (student.searchStudent(id)) {
+            return true;
+        }
+    }
+    return false;
+}
 
 std::string studentIDInput() {
     std::cout << "Please enter the student's ID(the length should be 10 digits): ";
@@ -50,4 +61,28 @@ double studentExamScoreInput() {
         errorState = std::cin.fail();
     }
     return score;
+}
+
+void printTableHead() {
+    std::cout << std::left <<
+        std::setw(15) << "ID" <<
+            std::setw(15) << "Name" <<
+                std::setw(15) << "Usual Score" <<
+                    std::setw(15) << "Exam Score" << std::endl;
+}
+
+bool compareID(const Student &a, const Student &b) {
+    return a.getID() < b.getID();
+}
+
+bool informationChangeConfirmation() {
+    std::cout << "Do you want to change the information? (Y/N)" << std::endl;
+    char choice;
+    std::cin >> choice;
+    if (choice != 'Y' && choice != 'y') {
+        std::cout << "Information is not modified." << std::endl;
+        return false;
+    }
+    std::cout << "Information is modified." << std::endl;
+    return true;
 }

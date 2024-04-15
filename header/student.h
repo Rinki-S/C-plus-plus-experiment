@@ -4,12 +4,14 @@
 
 #ifndef STUDENT_H
 #define STUDENT_H
+#include "../header/model.h"
 
 [[nodiscard]] int addStudents();
 [[nodiscard]] int removeStudents();
 [[nodiscard]] int displayStudents();
-[[nodiscard]] int modifyStudents();
-[[nodiscard]] int query();
-[[nodiscard]] int statistics();
+void modifyStudents();
+int informationModify(Student student);
+void query();
+void statistics();
 
 #endif //STUDENT_H

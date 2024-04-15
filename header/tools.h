@@ -6,9 +6,13 @@
 #define TOOLS_H
 #include <string>
 
+bool checkDuplicateStudent(const std::vector<Student> &students, const std::string &id);
 std::string studentIDInput();
 std::string studentNameInput();
 double studentUsualScoreInput();
 double studentExamScoreInput();
+void printTableHead();
+bool compareID(const Student &a, const Student &b);
+bool informationChangeConfirmation();
 
 #endif //TOOLS_H
