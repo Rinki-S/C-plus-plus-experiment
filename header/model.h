@@ -63,12 +63,6 @@ public:
 };
     void showGPAList();
 
-    void showStudent(string id) {
-        if (searchStudent(id) == 1){
-			printStu();
-        }
-    };
-
     void deleteStudent(std::string id);
 
     void modifyStudent(std::string id);
