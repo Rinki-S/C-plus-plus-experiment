@@ -45,6 +45,21 @@ public:
         }
     }
 
+    std::string getStudentID(){
+		return studentID;
+	}
+    std::string getStudentName(){
+		return studentName;
+	}
+	double getStudentUsualGPA(){
+		return studentUsualGPA;
+	}
+	double getStudentExamGPA(){
+		return studentExamGPA;
+	}
+	double getStudentFinalGPA(){
+		return studentFinalGPA;
+	}
 };
     void showGPAList();
 
