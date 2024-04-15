@@ -16,11 +16,11 @@ public:
 		student_final_gpa = usual_gpa * 0.2 + exam_gpa * 0.8;
 	}
 	void print() {
-		cout << "学号：" << student_id << endl;
-		cout << "姓名：" << student_name << endl;
-		cout << "平时成绩：" << student_usual_gpa << endl;
-		cout << "考试成绩：" << student_exam_gpa << endl;
-		cout << "最终成绩：" << student_final_gpa << endl;
+		cout << "StudentID:" << student_id << endl;
+		cout << "StudentName:" << student_name << endl;
+		cout << "UsualGPA:" << student_usual_gpa << endl;
+		cout << "ExmaGPA:" << student_exam_gpa << endl;
+		cout << "FinalGPA:" << student_final_gpa << endl;
 	}
 	void show_gpalist();
 	void delete_student(string id);
