@@ -14,30 +14,30 @@ enum class MenuOptions {
 
 class Student {
 private:
-    std::string studentID;
-    std::string studentName;
-    double studentUsualGPA;
-    double studentExamGPA;
-    double studentFinalGPA;
+    std::string id;
+    std::string name;
+    double usualScore;
+    double examScore;
+    double finalScore;
 public:
-    Student(std::string&& id, std::string&& name, const double usualGPA, const double examGPA) {
-        studentID = std::move(id);
-        studentName = std::move(name);
-        studentUsualGPA = usualGPA;
-        studentExamGPA = examGPA;
-        studentFinalGPA = usualGPA * 0.2 + examGPA * 0.8;
+    Student(std::string& id, std::string& name, const double inputUsualScore, const double inputExamScore) {
+        id = std::move(id);
+        name = std::move(name);
+        usualScore = inputUsualScore;
+        examScore = inputExamScore;
+        finalScore = inputUsualScore * 0.2 + inputExamScore * 0.8;
     }
 
     void printStu() const {
-        std::cout << "Student ID:" << studentID << std::endl;
-        std::cout << "Student Name:" << studentName << std::endl;
-        std::cout << "Usual GPA:" << studentUsualGPA << std::endl;
-        std::cout << "Exam GPA:" << studentExamGPA << std::endl;
-        std::cout << "Final GPA:" << studentFinalGPA << std::endl;
+        std::cout << "Student ID:" << id << std::endl;
+        std::cout << "Student Name:" << name << std::endl;
+        std::cout << "Usual GPA:" << usualScore << std::endl;
+        std::cout << "Exam GPA:" << examScore << std::endl;
+        std::cout << "Final GPA:" << finalScore << std::endl;
     }
 
-    [[nodiscard]] int searchStudent(const std::string&& id) const {
-        if (id == studentID) {
+    [[nodiscard]] int searchStudent(const std::string&& inputID) const {
+        if (inputID == id) {
             return 1;
         }
         std::cout << "No such student!" << std::endl;
@@ -45,19 +45,19 @@ public:
     }
 
     std::string getStudentID() {
-		return studentID;
+		return id;
 	}
     std::string getStudentName(){
-		return studentName;
+		return name;
 	}
 	double getStudentUsualGPA() const{
-		return studentUsualGPA;
+		return usualScore;
 	}
 	double getStudentExamGPA(){
-		return studentExamGPA;
+		return examScore;
 	}
 	double getStudentFinalGPA(){
-		return studentFinalGPA;
+		return finalScore;
 	}
 };
     void showGPAList();

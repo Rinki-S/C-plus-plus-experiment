@@ -4,7 +4,7 @@
 #include "../header/model.h"
 
 int main() {
-    std::cout << "\033[1mWelcome to Student Management System\033[0m" << std::endl;
+    std::cout << "\033[1m" << "Welcome to Student Management System" << "\033[0m" << std::endl;
     int choice;
     std::vector<Student> students;
     do {
