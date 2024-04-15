@@ -7,4 +7,6 @@ add_executable(Grade_Management_System source/main.cpp
         source/menu.cpp
         header/menu.h
         header/model.h
-        source/model.cpp)
+        source/model.cpp
+        source/students.cpp
+        header/students.h)

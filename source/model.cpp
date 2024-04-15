@@ -4,6 +4,7 @@
 bool compareStudentID(Student s1, Student s2) {
 	return s1.getStudentID() < s2.getStudentID();
 }
+
 void showGPAList(std::vector<Student> students) {
 	auto it=students.begin();
 	std::sort(students.begin(), students.end(), compareStudentID));

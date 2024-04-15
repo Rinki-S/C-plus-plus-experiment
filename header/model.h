@@ -36,22 +36,21 @@ public:
         std::cout << "Final GPA:" << studentFinalGPA << std::endl;
     }
 
-    int searchStudent(const std::string&& id) const {
+    [[nodiscard]] int searchStudent(const std::string&& id) const {
         if (id == studentID) {
             return 1;
         }
-        else {
-            std::cout << "No such student!" << std::endl;
-        }
+        std::cout << "No such student!" << std::endl;
+        return 0;
     }
 
-    std::string getStudentID(){
+    std::string getStudentID() {
 		return studentID;
 	}
     std::string getStudentName(){
 		return studentName;
 	}
-	double getStudentUsualGPA(){
+	double getStudentUsualGPA() const{
 		return studentUsualGPA;
 	}
 	double getStudentExamGPA(){
