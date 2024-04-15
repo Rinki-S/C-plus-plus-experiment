@@ -43,7 +43,7 @@
     return 1;
 }
 
-[[nodiscard]] int removeStudents(std::vector<Student> students) {
+[[nodiscard]] int removeStudents(std::vector<Student>& students) {
     std::string id = studentIDInput();
     bool isStudentExist = false;
     for (auto it = students.begin(); it != students.end(); ++it) {
@@ -80,7 +80,7 @@
     return 1;
 }
 
-void displayStudents(const std::vector<Student>& students) {
+void displayStudents(std::vector<Student>& students) {
     if (students.empty()) {
         std::cout << "No student is in the list." << std::endl;
         return;
@@ -92,7 +92,7 @@ void displayStudents(const std::vector<Student>& students) {
     }
 }
 
-int informationModify(Student student) {
+int informationModify(Student& student) {
     std::cout << "Which part of the information do you want to change?" << std::endl;
     informationOutput();
     int choice;
@@ -144,7 +144,7 @@ int informationModify(Student student) {
     return isInformationChanged;
 }
 
-void modifyStudents(const std::vector<Student>& students) {
+void modifyStudents(std::vector<Student>& students) {
     std::string inputID = studentIDInput();
     for (auto & student : students) {
         if (student.searchStudent(std::move(inputID))) {

@@ -73,7 +73,7 @@ public:
                         std::setw(15) << examScore << std::endl;
     }
 
-    [[nodiscard]] bool searchStudent(const std::string&& inputID) const {
+    [[nodiscard]] bool searchStudent(const std::string& inputID) const {
         return id == inputID;
     }
 };

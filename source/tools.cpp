@@ -4,9 +4,11 @@
 #include <iostream>
 #include <algorithm>
 #include <iomanip>
+#include <vector>
 #include "../header/model.h"
+#include "../header/student.h"
 
-bool checkDuplicateStudent(const std::vector<Student> &students, const std::string &id) {
+bool checkDuplicateStudent(const std::vector<Student> &students, const std::string& id) {
     for (const auto &student : students) {
         if (student.searchStudent(id)) {
             return true;
