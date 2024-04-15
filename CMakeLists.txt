@@ -5,4 +5,5 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Grade_Management_System source/main.cpp
         source/menu.cpp
-        header/menu.h)
+        header/menu.h
+        header/model.h)
