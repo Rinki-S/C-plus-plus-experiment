@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "../header/model.h"
+#include "../header/student.h"
 
 void menuOutput() { // Function to display the menu
     std::cout << "+-------------------------------------+" << std::endl;
@@ -29,24 +30,31 @@ void menuSelection(const MenuOptions option) { // Function to take the choice fr
     switch (option) {
         case MenuOptions::ADD_STUDENT:
             std::cout << "Add student(s)" << std::endl;
+            addStudents(students);
             break;
         case MenuOptions::REMOVE_STUDENT:
             std::cout << "Remove student(s)" << std::endl;
+            removeStudents(students);
             break;
         case MenuOptions::DISPLAY_STUDENT:
             std::cout << "Display student(s)" << std::endl;
+            displayStudents(students);
             break;
         case MenuOptions::MODIFY_STUDENT:
             std::cout << "Modify student(s)" << std::endl;
+            modifyStudents(students);
             break;
         case MenuOptions::QUERY:
             std::cout << "Query" << std::endl;
+            query(students);
             break;
         case MenuOptions::STATISTICS:
             std::cout << "Statistics" << std::endl;
+            statistics(students);
             break;
         case MenuOptions::EXIT:
             std::cout << "Exit" << std::endl;
+            saveToFile(students);
             break;
         default:
             std::cout << "Invalid choice" << std::endl;
