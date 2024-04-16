@@ -8,7 +8,7 @@
 #include<string>
 #include "../header/model.h"
 
-bool checkDuplicateStudent(const std::vector<Student> &students, const std::string& id) {
+bool checkDuplicateStudent(const std::vector<Student> &students, const std::string& id) { // Check if the student with the same ID already exists
     for (const auto &student : students) {
         if (student.searchStudent(id)) {
             return true;
@@ -17,7 +17,7 @@ bool checkDuplicateStudent(const std::vector<Student> &students, const std::stri
     return false;
 }
 
-std::string studentIDInput() {
+std::string studentIDInput() { // Input the student's ID
     std::cout << "Please enter the student's ID(the length should be 10 digits): ";
     std::string id;
     std::cin >> id;
@@ -30,7 +30,7 @@ std::string studentIDInput() {
     return id;
 }
 
-std::string studentNameInput() {
+std::string studentNameInput() { // Input the student's name
     std::cout << "Please enter the student's name: ";
     std::string name;
     std::getline(std::cin, name);
@@ -42,7 +42,7 @@ std::string studentNameInput() {
     return name;
 }
 
-double studentUsualScoreInput() {
+double studentUsualScoreInput() { // Input the student's usual score
     std::cout << "Please enter the student's usual score: ";
     double score;
     std::cin >> score;
@@ -57,7 +57,7 @@ double studentUsualScoreInput() {
     return score;
 }
 
-double studentExamScoreInput() {
+double studentExamScoreInput() { // Input the student's exam score
     std::cout << "Please enter the student's exam score: ";
     double score;
     std::cin >> score;
@@ -72,7 +72,7 @@ double studentExamScoreInput() {
     return score;
 }
 
-void printTableHead() {
+void printTableHead() { // Print the table head
     std::cout << std::left <<
         std::setw(15) << "ID" <<
             std::setw(15) << "Name" <<
@@ -80,11 +80,11 @@ void printTableHead() {
                     std::setw(15) << "Exam Score" << std::endl;
 }
 
-bool compareID(const Student &a, const Student &b) {
+bool compareID(const Student &a, const Student &b) { // Compare the ID of two students
     return a.getID() < b.getID();
 }
 
-bool informationChangeConfirmation() {
+bool informationChangeConfirmation() { // Confirm if the information is changed
     std::cout << "Do you want to change the information? (Y/N)" << std::endl;
     char choice;
     std::cin >> choice;

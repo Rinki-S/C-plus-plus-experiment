@@ -4,7 +4,7 @@
 #include <string>
 #include "../header/student.h"
 
-void saveToFile(const std::vector<Student>& students) {
+void saveToFile(const std::vector<Student>& students) { // Save the students to the file
 	std::ofstream file("studentsList.txt");
 	if (!file) {
           std::cerr << "Error: File could not be opened." << std::endl;
@@ -16,7 +16,7 @@ void saveToFile(const std::vector<Student>& students) {
 	file.close();
 }
 
-void loadFromFile(std::vector<Student>& students) {
+void loadFromFile(std::vector<Student>& students) { // Load the students from the file
 	std::ifstream file("studentsList.txt");
 	if (!file) {
 		std::cerr << "No file found." << std::endl;

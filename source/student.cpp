@@ -44,7 +44,7 @@ int addStudents(std::vector<Student>& students) {
     return 1;
 }
 
-int removeStudents(std::vector<Student>& students) {
+int removeStudents(std::vector<Student>& students) { // Remove student(s) from the list
     const std::string id = studentIDInput();
     bool isStudentExist = false;
     for (auto it = students.begin(); it != students.end(); ++it) {
@@ -81,7 +81,7 @@ int removeStudents(std::vector<Student>& students) {
     return 1;
 }
 
-void displayStudents(std::vector<Student>& students) {
+void displayStudents(std::vector<Student>& students) { // Display student(s) in the list
     if (students.empty()) {
         std::cout << "No student is in the list." << std::endl;
         return;
@@ -93,7 +93,7 @@ void displayStudents(std::vector<Student>& students) {
     }
 }
 
-int informationModify(Student& student) {
+int informationModify(Student& student) { // Modify the information of the student
     std::cout << "Which part of the information do you want to change?" << std::endl;
     informationOutput();
     int choice;
@@ -145,7 +145,7 @@ int informationModify(Student& student) {
     return isInformationChanged;
 }
 
-void modifyStudents(std::vector<Student>& students) {
+void modifyStudents(std::vector<Student>& students) { // Modify student(s) in the list
     const std::string inputID = studentIDInput();
     for (auto & student : students) {
         if (student.searchStudent(inputID)) {
@@ -168,7 +168,7 @@ void modifyStudents(std::vector<Student>& students) {
 }
 
 
-void query(const std::vector<Student>& students) {
+void query(const std::vector<Student>& students) { // Query student(s) in the list
     const std::string inputID = studentIDInput();
     for (auto & student : students) {
         if (student.searchStudent(inputID)) {
@@ -181,7 +181,7 @@ void query(const std::vector<Student>& students) {
     std::cout << "The student with this ID does not exist." << std::endl;
 }
 
-void statistics(const std::vector<Student>& students) {
+void statistics(const std::vector<Student>& students) { // Display the statistics of the students
     if (students.empty()) {
         std::cout << "No student is in the list." << std::endl;
         return;

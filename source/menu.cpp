@@ -8,6 +8,8 @@
 
 void menuOutput() { // Function to display the menu
     std::cout << "+-------------------------------------+" << std::endl;
+    std::cout << "|                Menu                 |" << std::endl;
+    std::cout << "+-------------------------------------+" << std::endl;
     std::cout << "| 1. Add student(s)                   |" << std::endl;
     std::cout << "| 2. Remove student(s)                |" << std::endl;
     std::cout << "| 3. Display student(s)               |" << std::endl;
@@ -18,7 +20,7 @@ void menuOutput() { // Function to display the menu
     std::cout << "+-------------------------------------+" << std::endl;
 }
 
-void informationOutput() {
+void informationOutput() { // Function to display the types of the information
     std::cout << "+-------------------------------------+" << std::endl;
     std::cout << "| 1. ID                               |" << std::endl;
     std::cout << "| 2. Name                             |" << std::endl;

@@ -7,8 +7,8 @@
 int main() {
     std::cout << "\033[1m" << "Welcome to Student Management System" << "\033[0m" << std::endl;
     int choice;
-    std::vector<Student> students;
-    loadFromFile(students);
+    std::vector<Student> students; // Create a vector to store the students
+    loadFromFile(students); // Load the students from the file
     do {
         menuOutput();
         std::cout << "Enter your choice: ";
