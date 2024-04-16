@@ -8,6 +8,7 @@
 #include "../header/model.h"
 #include "../header/menu.h"
 #include "../header/tools.h"
+#include <algorithm>
 
 [[nodiscard]] int addStudents(std::vector<Student> *students) {
     // Add student(s) to the list

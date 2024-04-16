@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <vector>
+#include<string>
 #include "../header/model.h"
 #include "../header/student.h"
 
