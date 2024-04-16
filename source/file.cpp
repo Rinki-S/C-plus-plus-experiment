@@ -1,9 +1,17 @@
 #include <fstream>
+#include <iostream>
+#include <vector>
+#include <string>
+#include "../header/student.h"
 
 void saveToFile(const std::vector<Student>& students) {
 	std::ofstream file("studentsList.txt");
+	if (!file) {
+          std::cerr << "Error: File could not be opened." << std::endl;
+		return;
+	}
 	for (auto& student : students) {
-		file << student.getID() << " " << student.getName() << " " << student.getUsualScore() << " " << student.getExamScore() << " " << student.getFinalScore() << std::endl;
+		file << student.getID() << std::endl << student.getName() << std::endl << student.getUsualScore() << std::endl << student.getExamScore() << std::endl << student.getFinalScore() << std::endl;
 	}
 	file.close();
 }
@@ -11,7 +19,7 @@ void saveToFile(const std::vector<Student>& students) {
 void loadFromFile(std::vector<Student>& students) {
 	std::ifstream file("studentsList.txt");
 	if (!file) {
-		std::cout << "No file found." << std::endl;
+		std::cerr << "No file found." << std::endl;
 		return;
 	}
 	std::string id;

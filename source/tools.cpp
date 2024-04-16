@@ -7,7 +7,6 @@
 #include <vector>
 #include<string>
 #include "../header/model.h"
-#include "../header/student.h"
 
 bool checkDuplicateStudent(const std::vector<Student> &students, const std::string& id) {
     for (const auto &student : students) {
@@ -23,9 +22,11 @@ std::string studentIDInput() {
     std::string id;
     std::cin >> id;
     while (id.length() != 10 || !std::all_of(id.begin(), id.end(), ::isdigit)){
-        std::cout << std::endl << "Your input is invalid, please input again: ";
+        std::cout << std::endl << "Your ID input is invalid, please input again: ";
+        std::cin.clear();
         std::cin >> id;
     }
+    std::cin.ignore();
     return id;
 }
 
@@ -34,7 +35,8 @@ std::string studentNameInput() {
     std::string name;
     std::getline(std::cin, name);
     while (name.empty()) {
-        std::cout << std::endl << "Your input is invalid, please input again: ";
+        std::cout << std::endl << "Your name input is invalid, please input again: ";
+        std::cin.clear();
         std::getline(std::cin, name);
     }
     return name;
@@ -43,26 +45,30 @@ std::string studentNameInput() {
 double studentUsualScoreInput() {
     std::cout << "Please enter the student's usual score: ";
     double score;
+    std::cin >> score;
     bool errorState = std::cin.fail();
     while (errorState || score < 0 || score > 100){
-        std::cout << std::endl << "Your input is invalid, please input again: ";
+        std::cout << std::endl << "Your usual score input is invalid, please input again: ";
         std::cin.clear();
         std::cin >> score;
         errorState = std::cin.fail();
     }
+    std::cin.ignore();
     return score;
 }
 
 double studentExamScoreInput() {
     std::cout << "Please enter the student's exam score: ";
     double score;
+    std::cin >> score;
     bool errorState = std::cin.fail();
     while (errorState || score < 0 || score > 100){
-        std::cout << std::endl << "Your input is invalid, please input again: ";
+        std::cout << std::endl << "Your exam score input is invalid, please input again: ";
         std::cin.clear();
         std::cin >> score;
         errorState = std::cin.fail();
     }
+    std::cin.ignore();
     return score;
 }
 

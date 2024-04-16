@@ -9,6 +9,6 @@
 
 void menuOutput();
 void informationOutput();
-void menuSelection(MenuOptions choice);
+void menuSelection(MenuOptions option, std::vector<Student>& students);
 
 #endif //GRADE_MANAGEMENT_SYSTEM_MENU_H

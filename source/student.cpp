@@ -10,10 +10,10 @@
 #include "../header/tools.h"
 #include <algorithm>
 
-[[nodiscard]] int addStudents(std::vector<Student> *students) {
+int addStudents(std::vector<Student>& students) {
     // Add student(s) to the list
     std::string id = studentIDInput();
-    while (checkDuplicateStudent(*students, id)) {
+    while (checkDuplicateStudent(students, id)) {
         std::cout << "The student with this ID already exists, please input again!" << std::endl;
         id = studentIDInput();
     }
@@ -32,7 +32,7 @@
         return 0;
     }
     std::cout << "The student is added to the list." << std::endl;
-    students->emplace_back(student);
+    students.emplace_back(student);
     std::cout << "Do you want to add another student? (Y/N)" << std::endl;
     std::cin >> choice;
     if (choice == 'Y' || choice == 'y') {
@@ -44,11 +44,11 @@
     return 1;
 }
 
-[[nodiscard]] int removeStudents(std::vector<Student>& students) {
-    std::string id = studentIDInput();
+int removeStudents(std::vector<Student>& students) {
+    const std::string id = studentIDInput();
     bool isStudentExist = false;
     for (auto it = students.begin(); it != students.end(); ++it) {
-        if (it->searchStudent(std::move(id))) {
+        if (it->searchStudent(id)) {
             isStudentExist = true;
             std::cout << "The student with this ID is:" << std::endl;
             printTableHead();
@@ -146,9 +146,9 @@ int informationModify(Student& student) {
 }
 
 void modifyStudents(std::vector<Student>& students) {
-    std::string inputID = studentIDInput();
+    const std::string inputID = studentIDInput();
     for (auto & student : students) {
-        if (student.searchStudent(std::move(inputID))) {
+        if (student.searchStudent(inputID)) {
             std::cout << "The student with this ID is:" << std::endl;
             printTableHead();
             student.printStu();
@@ -169,9 +169,9 @@ void modifyStudents(std::vector<Student>& students) {
 
 
 void query(const std::vector<Student>& students) {
-    std::string inputID = studentIDInput();
+    const std::string inputID = studentIDInput();
     for (auto & student : students) {
-        if (student.searchStudent(std::move(inputID))) {
+        if (student.searchStudent(inputID)) {
             std::cout << "The student with this ID is:" << std::endl;
             printTableHead();
             student.printStu();

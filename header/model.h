@@ -30,8 +30,8 @@ private:
 
 public:
     Student(std::string& id, std::string& name, const double inputUsualScore, const double inputExamScore) {
-        id = std::move(id);
-        name = std::move(name);
+        this->id = id;
+        this->name = name;
         usualScore = inputUsualScore;
         examScore = inputExamScore;
         finalScore = inputUsualScore * 0.2 + inputExamScore * 0.8;
