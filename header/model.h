@@ -41,6 +41,18 @@ public:
         return id;
     }
 
+    std::string getName() const {
+		return name;
+	}
+
+    double getUsualScore() const {
+		return usualScore;
+	}
+
+    double getExamScore() const {
+        return examScore;
+    }
+
     double getFinalScore() const {
         return finalScore;
     }
