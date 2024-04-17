@@ -81,7 +81,8 @@ void printTableHead() { // Print the table head
         std::setw(15) << "ID" <<
             std::setw(15) << "Name" <<
                 std::setw(15) << "Usual Score" <<
-                    std::setw(15) << "Exam Score" << std::endl;
+                    std::setw(15) << "Exam Score" <<
+                        std::setw(15) << "Final Score" << std::endl;
 }
 
 bool compareID(const Student &a, const Student &b) { // Compare the ID of two students

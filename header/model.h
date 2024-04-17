@@ -82,7 +82,8 @@ public:
             std::setw(15) << id <<
                 std::setw(15) << name <<
                     std::setw(15) << usualScore <<
-                        std::setw(15) << examScore << std::endl;
+                        std::setw(15) << examScore <<
+                            std::setw(15) << finalScore << std::endl;
     }
 
     [[nodiscard]] bool searchStudent(const std::string& inputID) const { // Search the student by ID
