@@ -7,7 +7,7 @@
 #include <vector>
 #include "student.h"
 
-void saveToFile(const std::vector<Student>& students);
-void loadFromFile(std::vector<Student>& students);
+void saveToFile(const std::vector<Student> &students);
+void loadFromFile(std::vector<Student> &students);
 
-#endif //FILE_H
+#endif // FILE_H

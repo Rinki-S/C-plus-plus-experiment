@@ -2,9 +2,9 @@
 // Created by Rinki on 24-4-15.
 //
 #include <iostream>
+#include "../header/file.h"
 #include "../header/model.h"
 #include "../header/student.h"
-#include "../header/file.h"
 
 void menuOutput() { // Function to display the menu
     std::cout << "+-------------------------------------+" << std::endl;
@@ -29,7 +29,8 @@ void informationOutput() { // Function to display the types of the information
     std::cout << "+-------------------------------------+" << std::endl;
 }
 
-void menuSelection(const MenuOptions option, std::vector<Student>& students) { // Function to take the choice from the user
+void menuSelection(const MenuOptions option,
+                   std::vector<Student> &students) { // Function to take the choice from the user
     switch (option) {
         case MenuOptions::ADD_STUDENT:
             std::cout << "Add student(s)" << std::endl;
