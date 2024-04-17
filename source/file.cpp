@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include "../header/file.h"
-#include <limits>
 
 void saveToFile(const std::vector<Student> &students) { // Save the students to the file
     std::ofstream file("studentsList.txt");
@@ -34,7 +33,6 @@ void loadFromFile(std::vector<Student> &students) { // Load the students from th
     while (std::getline(file, id) && std::getline(file, name, '"') && std::getline(file, name, '"') &&
            file >> usualScore >> examScore >> finalScore) {
         students.emplace_back(id, name, usualScore, examScore);
-        // file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     file.close();
 }
