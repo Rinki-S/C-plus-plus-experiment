@@ -27,6 +27,7 @@ std::string studentIDInput() { // Input the student's ID
         std::cin >> id;
     }
     std::cin.ignore();
+    std::cin.clear();
     return id;
 }
 
@@ -39,6 +40,7 @@ std::string studentNameInput() { // Input the student's name
         std::cin.clear();
         std::getline(std::cin, name);
     }
+    std::cin.clear();
     return name;
 }
 
@@ -54,6 +56,7 @@ double studentUsualScoreInput() { // Input the student's usual score
         errorState = std::cin.fail();
     }
     std::cin.ignore();
+    std::cin.clear();
     return score;
 }
 
@@ -69,6 +72,7 @@ double studentExamScoreInput() { // Input the student's exam score
         errorState = std::cin.fail();
     }
     std::cin.ignore();
+    std::cin.clear();
     return score;
 }
 

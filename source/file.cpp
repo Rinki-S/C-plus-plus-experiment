@@ -11,7 +11,7 @@ void saveToFile(const std::vector<Student>& students) { // Save the students to 
 		return;
 	}
 	for (auto& student : students) {
-		file << student.getID() << std::endl << student.getName() << std::endl << student.getUsualScore() << std::endl << student.getExamScore() << std::endl << student.getFinalScore() << std::endl;
+		file << student.getID() << std::endl << '"' << student.getName() << '"' << std::endl << student.getUsualScore() << std::endl << student.getExamScore() << std::endl << student.getFinalScore() << std::endl;
 	}
 	file.close();
 }
@@ -27,7 +27,7 @@ void loadFromFile(std::vector<Student>& students) { // Load the students from th
 	double usualScore;
 	double examScore;
 	double finalScore;
-	while (file >> id >> name >> usualScore >> examScore >> finalScore) {
+	while (std::getline(file, id) && std::getline(file, name, '"') && std::getline(file, name, '"') && file >> usualScore >> examScore >> finalScore) {
 		students.emplace_back(id, name, usualScore, examScore);
 	}
 	file.close();

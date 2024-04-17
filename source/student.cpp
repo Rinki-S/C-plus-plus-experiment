@@ -56,13 +56,12 @@ int removeStudents(std::vector<Student>& students) { // Remove student(s) from t
             std::cout << "Do you want to remove this student from the list? (Y/N)" << std::endl;
             char choice;
             std::cin >> choice;
-            if (choice != 'Y' || choice != 'y') {
+            if (choice != 'Y' && choice != 'y') {
                 std::cout << "The student is not removed from the list." << std::endl;
                 break;
             }
             students.erase(it);
             std::cout << "The student is removed from the list." << std::endl;
-            return 1;
         }
     }
     if (!isStudentExist) {
