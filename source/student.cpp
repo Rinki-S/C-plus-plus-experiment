@@ -2,15 +2,14 @@
 // Created by Rinki on 24-4-15.
 //
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <iomanip>
-#include "../header/model.h"
 #include "../header/menu.h"
+#include "../header/model.h"
 #include "../header/tools.h"
-#include <algorithm>
 
-int addStudents(std::vector<Student>& students) {
+int addStudents(std::vector<Student> &students) {
     // Add student(s) to the list
     std::string id = studentIDInput();
     while (checkDuplicateStudent(students, id)) {
@@ -36,7 +35,7 @@ int addStudents(std::vector<Student>& students) {
     std::cout << "Do you want to add another student? (Y/N)" << std::endl;
     std::cin >> choice;
     if (choice == 'Y' || choice == 'y') {
-        if(!addStudents(students)) {
+        if (!addStudents(students)) {
             std::cout << "No more students are added." << std::endl;
             return 0;
         }
@@ -44,10 +43,10 @@ int addStudents(std::vector<Student>& students) {
     return 1;
 }
 
-int removeStudents(std::vector<Student>& students) { // Remove student(s) from the list
+int removeStudents(std::vector<Student> &students) { // Remove student(s) from the list
     const std::string id = studentIDInput();
     bool isStudentExist = false;
-    for (auto it = students.begin(); it != students.end(); ++it) {
+    for (auto it = students.begin(); it != students.end(); ) {
         if (it->searchStudent(id)) {
             isStudentExist = true;
             std::cout << "The student with this ID is:" << std::endl;
@@ -62,6 +61,8 @@ int removeStudents(std::vector<Student>& students) { // Remove student(s) from t
             }
             students.erase(it);
             std::cout << "The student is removed from the list." << std::endl;
+        } else {
+            ++it;
         }
     }
     if (!isStudentExist) {
@@ -72,7 +73,7 @@ int removeStudents(std::vector<Student>& students) { // Remove student(s) from t
     char choice;
     std::cin >> choice;
     if (choice == 'Y' || choice == 'y') {
-        if(!removeStudents(students)) {
+        if (!removeStudents(students)) {
             std::cout << "No more students are removed." << std::endl;
             return 0;
         }
@@ -80,19 +81,19 @@ int removeStudents(std::vector<Student>& students) { // Remove student(s) from t
     return 1;
 }
 
-void displayStudents(std::vector<Student>& students) { // Display student(s) in the list
+void displayStudents(std::vector<Student> &students) { // Display student(s) in the list
     if (students.empty()) {
         std::cout << "No student is in the list." << std::endl;
         return;
     }
     std::sort(students.begin(), students.end(), compareID);
     printTableHead();
-    for (const auto & student : students) {
+    for (const auto &student: students) {
         student.printStu();
     }
 }
 
-int informationModify(Student& student) { // Modify the information of the student
+int informationModify(Student &student) { // Modify the information of the student
     std::cout << "Which part of the information do you want to change?" << std::endl;
     informationOutput();
     int choice;
@@ -144,9 +145,9 @@ int informationModify(Student& student) { // Modify the information of the stude
     return isInformationChanged;
 }
 
-void modifyStudents(std::vector<Student>& students) { // Modify student(s) in the list
+void modifyStudents(std::vector<Student> &students) { // Modify student(s) in the list
     const std::string inputID = studentIDInput();
-    for (auto & student : students) {
+    for (auto &student: students) {
         if (student.searchStudent(inputID)) {
             std::cout << "The student with this ID is:" << std::endl;
             printTableHead();
@@ -167,9 +168,9 @@ void modifyStudents(std::vector<Student>& students) { // Modify student(s) in th
 }
 
 
-void query(const std::vector<Student>& students) { // Query student(s) in the list
+void query(const std::vector<Student> &students) { // Query student(s) in the list
     const std::string inputID = studentIDInput();
-    for (auto & student : students) {
+    for (auto &student: students) {
         if (student.searchStudent(inputID)) {
             std::cout << "The student with this ID is:" << std::endl;
             printTableHead();
@@ -180,7 +181,7 @@ void query(const std::vector<Student>& students) { // Query student(s) in the li
     std::cout << "The student with this ID does not exist." << std::endl;
 }
 
-void statistics(const std::vector<Student>& students) { // Display the statistics of the students
+void statistics(const std::vector<Student> &students) { // Display the statistics of the students
     if (students.empty()) {
         std::cout << "No student is in the list." << std::endl;
         return;
@@ -191,7 +192,7 @@ void statistics(const std::vector<Student>& students) { // Display the statistic
     int gradeC = 0;
     int gradeD = 0;
     int gradeF = 0;
-    for (const auto & student : students) {
+    for (const auto &student: students) {
         sum += student.getFinalScore();
         if (student.getFinalScore() >= 90) {
             gradeA++;

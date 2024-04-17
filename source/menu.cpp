@@ -61,7 +61,6 @@ void menuSelection(const MenuOptions option,
             saveToFile(students);
             break;
         default:
-            std::cout << "Invalid choice" << std::endl;
             break;
     }
     std::cout << std::endl;
