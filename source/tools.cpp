@@ -52,6 +52,7 @@ double studentUsualScoreInput() { // Input the student's usual score
     while (errorState || score < 0 || score > 100){
         std::cout << std::endl << "Your usual score input is invalid, please input again: ";
         std::cin.clear();
+        std::cin.ignore();
         std::cin >> score;
         errorState = std::cin.fail();
     }
@@ -68,6 +69,7 @@ double studentExamScoreInput() { // Input the student's exam score
     while (errorState || score < 0 || score > 100){
         std::cout << std::endl << "Your exam score input is invalid, please input again: ";
         std::cin.clear();
+        std::cin.ignore();
         std::cin >> score;
         errorState = std::cin.fail();
     }

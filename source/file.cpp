@@ -1,7 +1,8 @@
+#include "../header/file.h"
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <string>
-#include "../header/file.h"
 
 void saveToFile(const std::vector<Student> &students) { // Save the students to the file
     std::ofstream file("studentsList.txt");

@@ -5,3 +5,6 @@ out/
 build/
 .cache/
 cmake-build-release/
+.vscode/
+.zed/
+studentsList.txt
