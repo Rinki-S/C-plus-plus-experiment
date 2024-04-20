@@ -46,7 +46,7 @@ int addStudents(std::vector<Student> &students) {
 int removeStudents(std::vector<Student> &students) { // Remove student(s) from the list
     const std::string id = studentIDInput();
     bool isStudentExist = false;
-    for (auto it = students.begin(); it != students.end(); ) {
+    for (auto it = students.begin(); it != students.end();) {
         if (it->searchStudent(id)) {
             isStudentExist = true;
             std::cout << "The student with this ID is:" << std::endl;
@@ -59,7 +59,7 @@ int removeStudents(std::vector<Student> &students) { // Remove student(s) from t
                 std::cout << "The student is not removed from the list." << std::endl;
                 break;
             }
-            students.erase(it);
+            it = students.erase(it);
             std::cout << "The student is removed from the list." << std::endl;
         } else {
             ++it;
@@ -93,7 +93,7 @@ void displayStudents(std::vector<Student> &students) { // Display student(s) in 
     }
 }
 
-int informationModify(Student &student) { // Modify the information of the student
+int informationModify(Student &student, std::vector<Student> &students) { // Modify the information of the student
     std::cout << "Which part of the information do you want to change?" << std::endl;
     informationOutput();
     int choice;
@@ -106,6 +106,10 @@ int informationModify(Student &student) { // Modify the information of the stude
     switch (static_cast<InformationOptions>(choice)) {
         case InformationOptions::ID: {
             std::string id = studentIDInput();
+            while (checkDuplicateStudent(students, id)) {
+                std::cout << "The student with this ID already exists, please input again!" << std::endl;
+                id = studentIDInput();
+            }
             if (informationChangeConfirmation()) {
                 isInformationChanged = true;
                 student.setID(std::move(id));
@@ -152,13 +156,13 @@ void modifyStudents(std::vector<Student> &students) { // Modify student(s) in th
             std::cout << "The student with this ID is:" << std::endl;
             printTableHead();
             student.printStu();
-            if (!informationModify(student))
+            if (!informationModify(student, students))
                 return;
             std::cout << "Do you want to modify another part of this student's information? (Y/N)" << std::endl;
             char choice;
             std::cin >> choice;
             while (choice == 'Y' || choice == 'y') {
-                if (!informationModify(student))
+                if (!informationModify(student, students))
                     return;
                 std::cout << "Do you want to modify another part of this student's information? (Y/N)" << std::endl;
                 std::cin >> choice;

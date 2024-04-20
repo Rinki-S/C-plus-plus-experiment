@@ -5,6 +5,7 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 #include <string>
+#include "model.h"
 
 bool checkDuplicateStudent(const std::vector<Student> &students, const std::string &id);
 std::string studentIDInput();
