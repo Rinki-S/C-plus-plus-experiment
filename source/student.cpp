@@ -151,8 +151,10 @@ int informationModify(Student &student, std::vector<Student> &students) { // Mod
 
 void modifyStudents(std::vector<Student> &students) { // Modify student(s) in the list
     const std::string inputID = studentIDInput();
+    int modifyflag = 0;
     for (auto &student: students) {
         if (student.searchStudent(inputID)) {
+            modifyflag = 1;
             std::cout << "The student with this ID is:" << std::endl;
             printTableHead();
             student.printStu();
@@ -169,6 +171,9 @@ void modifyStudents(std::vector<Student> &students) { // Modify student(s) in th
             }
         }
     }
+    if (!modifyflag) {
+		std::cout << "The student with this ID does not exist." << std::endl;
+	}
 }
 
 
